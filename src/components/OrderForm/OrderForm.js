@@ -20,11 +20,10 @@ class OrderForm extends Component {
   handleIngredientChange = e => {
     e.preventDefault();
     const ingredient = e.target.name;
-    // TODO
-    const addedIngredients = ['steak'];
+    const addedIngredients = this.state.ingredients || [];
     addedIngredients.push(ingredient);
     console.log(addedIngredients);
-    this.setState({ingredients: [...addedIngredients]})
+    this.setState({ingredients: addedIngredients})
   }
 
   // const onChange = evt => {
