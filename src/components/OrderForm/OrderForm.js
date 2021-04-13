@@ -10,6 +10,30 @@ class OrderForm extends Component {
     };
   }
 
+  handleNameChange = e => {
+    e.preventDefault();
+    const name = e.target.value;
+    console.log({name});
+    this.setState({name});
+  }
+
+  handleIngredientChange = e => {
+    e.preventDefault();
+    const ingredient = e.target.name;
+    // TODO
+    const addedIngredients = ['steak'];
+    addedIngredients.push(ingredient);
+    console.log(addedIngredients);
+    this.setState({ingredients: [...addedIngredients]})
+  }
+
+  // const onChange = evt => {
+  //   console.log(`TASK 8- Obtain 'name' and 'value' from the target of the event,
+  //     and utilize the correct callback to update the state of the form.`)
+  //     const {name, value} = evt.target
+  //     setValues({...values, [name]: value});
+  // }
+
 
   handleSubmit = e => {
     e.preventDefault();
