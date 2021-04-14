@@ -1,43 +1,41 @@
-import React, { Component } from 'react';
-import './App.css';
-import {getOrders} from '../../apiCalls';
-import Orders from '../../components/Orders/Orders';
-import OrderForm from '../../components/OrderForm/OrderForm';
+import React, { Component } from "react";
+import "./App.css";
+import { getOrders } from "../../apiCalls";
+import Orders from "../../components/Orders/Orders";
+import OrderForm from "../../components/OrderForm/OrderForm";
 
 class App extends Component {
   constructor(props) {
     super();
-    this.state = {orders: []};
+    this.state = { orders: [] };
   }
 
   componentDidMount() {
     getOrders()
-      .then(orders => {
-        this.setState(orders)
+      .then((orders) => {
+        this.setState(orders);
       })
-      .catch(err => console.error('Error fetching:', err));
+      .catch((err) => console.error("Error fetching:", err));
   }
 
   handleAdd = (newOrder) => {
-    console.log(newOrder);
     let orders = this.state.orders;
-    orders.push(newOrder)
+    orders.push(newOrder);
     this.setState(orders);
-  }
+  };
 
   render() {
     return (
       <main className="App">
         <header>
           <h1>Burrito Builder</h1>
-          <OrderForm addOrder={this.handleAdd}/>
+          <OrderForm addOrder={this.handleAdd} />
         </header>
 
-        <Orders orders={this.state.orders}/>
+        <Orders orders={this.state.orders} />
       </main>
     );
   }
 }
-
 
 export default App;
