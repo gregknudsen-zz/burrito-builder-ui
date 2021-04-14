@@ -34,6 +34,12 @@ class OrderForm extends Component {
       name: this.state.name,
       ingredients: this.state.ingredients
     }
+
+    if (!newOrder.name.length) {
+      alert('Name is required.')
+    } else if ( !newOrder.ingredients.length) {
+      alert('Please choose at least one ingredient.')
+    } else {
     return fetch("http://localhost:3001/api/v1/orders", {
       method: "post",
       headers: {
@@ -44,11 +50,11 @@ class OrderForm extends Component {
      })
     .then(response => response.json()) 
     .then(newOrder => {
-      newOrder.name.length > 1 ? this.props.addOrder(newOrder) : alert("You need a name!")
+      this.props.addOrder(newOrder)
       this.clearInputs();
     })
     .catch(err => console.log(err))
-     
+  }
     //.then((response) => {
     //   console.log(response.json());
     //   this.setState(newOrder);
