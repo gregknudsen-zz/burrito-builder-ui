@@ -2,7 +2,6 @@ import React from 'react';
 import './Orders.css';
 
 const Orders = props => {
-  console.log(props.orders);
   const orderEls = props.orders.map((order, i) => {
     return (
       <div key={i} className="order">
