@@ -7,4 +7,10 @@ describe('App Component', () => {
   it('renders', () => {
     render(<App />)
   })
+  it('matches snapshot DOM node structure', () => {
+    // Arrange the snapshot - declare variables
+    const { asFragment } = render(<App />);
+    // Assert the match
+      expect(asFragment()).toMatchSnapshot();
+    })
 });
