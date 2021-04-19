@@ -13,7 +13,7 @@ describe('OrderForm Component', () => {
     // Assert the match
       expect(asFragment()).toMatchSnapshot();
   })
-  it('successfully adds an order when both fields have values', () => {
+  it.skip('successfully adds an order when both fields have values', () => {
     const newOrder = {
       name: 'Bob',
       ingredients: ['mushrooms']
